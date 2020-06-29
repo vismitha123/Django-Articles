@@ -1,0 +1,32 @@
+{% load static from static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ARTICLE</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+  </head>
+  <body>
+
+    <div class="wrapper">
+      <h1><a href="{% url 'home' %}" style="font-family:Ubuntu;"> ARTICLEEEE  </a></h1>
+      <nav>
+        <ul>
+          {% if user.is_authenticated %}
+          <li>
+            <form class="logout-link" action="{% url 'accounts:logout'%}" method="post">
+              {%csrf_token%}
+              <button type="submit" style="background:white;border-radius:15;"><b>LOGOUT</b></button>
+            </form>
+          </li>
+          <li><button type="submit" style="background:white;border-radius:15;margin-top:30px;"><a href="{% url 'articles:create'%}" style="color:black;"><b>NEW ARTICLE</b></a></button></li>
+          {% else %}
+          <li><button type="submit" style="background:white;border-radius:15;margin-top:30px;"><a href="{% url 'accounts:login'%}" style="color:black;"><b>LOGIN</b></a></button></li>
+            <li><button type="submit" style="background:white;border-radius:15;margin-top:30px;"><a href="{% url 'accounts:signup'%}" style="color:black;"><b>SIGNUP</b></a></button></li>
+          {% endif %}
+        </ul></nav>
+    {% block content %}
+    {% endblock %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+body{
+
+  background-image: url(/static/ranch.jpg);
+  background-color: #0f121f;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  height: 580px;
+  color:#ffff;
+}
+
+body *{
+  font-family: Ubuntu;
+}
+
+a,a:hover,a:visited{
+  color:#fff;
+  text-decoration: :none;
+}
